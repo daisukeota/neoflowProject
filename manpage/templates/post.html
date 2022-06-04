@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Neoflow.org{% endblock %}
+    <body>
+        <!-- Navigation-->
+        <!-- Page Header-->
+        {% block header %}
+        <header class="masthead" style="background-image: url({% static 'assets/img/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{object.title}}</h1>
+                            <h2 class="subheading">{{object.content|truncatechars:30}}</h2>
+                            <span class="meta">
+                                <a href={% url 'manpage:index' %}>Neoflow.org</a>
+                                {{object.posted_at}}に投稿/ディストロ : 
+                                {{object.distro}} - v{{object.version}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+        
+        <!-- Post Content-->
+        {% block contents %}
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {% if object.title and object.distro and object.version %}
+                            {% if object.distro == "blackarch" and object.version == "2021.09.01" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "blackarch/2021.09.01/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "centos" and object.version == "8.0.1905" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "centos/8.0.1905/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "rhel" and object.version == "6.5" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "rhel/6.5/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "rhel" and object.version == "9.0" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "rhel/9.0/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "slackware" and object.version == "15.0" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "slackware/15.0/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "macos" and object.version == "12.3.1" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "macos/12.3.1/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "freebsd" and object.version == "13.1" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "freebsd/13.1/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "parrot" and object.version == "5.0.1" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "parrot/5.0.1/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "kali" and object.version == "2022.2" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "kali/2022.2/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "ubuntu" and object.version == "22.04" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "ubuntu/22.04/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "debian" and object.version == "11.3" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "debian/11.3/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "deepin" and object.version == "20.5" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "deepin/20.5/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "qubes" and object.version == "4.1(dom0)" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "qubes/4.1/dom0/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "raspberrypi" and object.version == "11" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "raspberrypi/11/"|add:template_name %}
+                                {% endwith %}
+                            {% elif object.distro == "windows" and object.version == "5.1.19041.1682(PowerShell)" %}
+                                {% with template_name=object.title|stringformat:"s"|add:".html" %}
+                                    {% include "windows/ps/5.1.19041.1682/"|add:template_name %}
+                                {% endwith %}
+                            {% endif %}
+                        {% endif %}
+                        <p>{{object.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <hr>
+        {% endblock %}
+        
+        <!-- Footer-->

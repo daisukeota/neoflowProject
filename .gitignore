@@ -127,3 +127,20 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# neoflow.org
+manpage/media/
+manpage/templates/blackarch/
+manpage/templates/centos/
+manpage/templates/debian/
+manpage/templates/deepin/
+manpage/templates/freebsd/
+manpage/templates/kali/
+manpage/templates/macos/
+manpage/templates/parrot/
+manpage/templates/qubes/
+manpage/templates/raspberrypi/
+manpage/templates/rhel/
+manpage/templates/slackware/
+manpage/templates/ubuntu/
+manpage/templates/windows/

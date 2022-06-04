@@ -1,0 +1,19 @@
+version: '3'
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      DOMAINS: 'neoflow.org -> http://django:8080'
+      STAGE: 'production'
+    volumes:
+      - /var/lib/ssl_certs:/var/lib/https-portal
+  
+  django:
+    build: ./django-uwsgi-nginx
+    volumes:
+      - ./django-uwsgi-nginx/app:/code/app
+    ports:
+      - '8080'
