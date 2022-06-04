@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv sh
+cp /etc/nginx/conf.d/mysite_nginx.conf.temp /etc/nginx/conf.d/mysite_nginx.conf
+sed -i -e "s/DJANGO_CONTAINER_NAME/$DJANGO_CONTAINER_NAME/g" /etc/nginx/conf.d/mysite_nginx.conf
+sed -i -e "s/DJANGO_CONTAINER_PORT/$DJANGO_CONTAINER_PORT/g" /etc/nginx/conf.d/mysite_nginx.conf
+sed -i -e "s/NGINX_WATCH_PORT/$NGINX_WATCH_PORT/g" /etc/nginx/conf.d/mysite_nginx.conf
