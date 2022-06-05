@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bqk4l1he#0f-#xppc(qr2r1$ed&#@)=%=7azl&uqc=)t^^p6d!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -140,3 +140,8 @@ MEDIA_URL = '/media/'
 # WARNINGS:
 # manpage.ManpagePost: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
+# Security
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
