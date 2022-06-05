@@ -7,7 +7,7 @@ services:
     volumes:
       - ./nginx/ssl_certs:/var/lib/https-portal
       - ./nginx/conf/mysite_nginx.conf.temp:/etc/nginx/conf.d/mysite_nginx.conf.temp:ro
-      - ./nginx/script/11-set-nginx-env:/etc/cont-init.d/11-set-nginx-env:ro
+      - ./nginx/script/11-set-nginx-env:/etc/cont-init.d/11-set-nginx-env
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params:ro
       - ./static:/static
     ports:
