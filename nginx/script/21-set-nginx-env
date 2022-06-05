@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv sh
+if [ ! -f /etc/nginx/conf.d/mysite_nginx.conf ]; then
+  cp /etc/nginx/conf.d/mysite_nginx.conf.temp /etc/nginx/conf.d/mysite_nginx.conf
+  sed -i -e "s/DJANGO_CONTAINER_NAME/$DJANGO_CONTAINER_NAME/g" /etc/nginx/conf.d/mysite_nginx.conf
+  sed -i -e "s/DJANGO_CONTAINER_PORT/$DJANGO_CONTAINER_PORT/g" /etc/nginx/conf.d/mysite_nginx.conf
+  sed -i -e "s/NGINX_WATCH_PORT/$NGINX_WATCH_PORT/g" /etc/nginx/conf.d/mysite_nginx.conf
+else
+  echo "[cont-init.d] This container is already configured"
+  exit 0
+fi
