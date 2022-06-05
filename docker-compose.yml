@@ -29,4 +29,4 @@ services:
       - ${DJANGO_CONTAINER_PORT}
     env_file:
       - .env
-    command: uwsgi --socket :${DJANGO_CONTAINER_PORT} --module neoflowProject.wsgi
+    command: uwsgi --socket :${DJANGO_CONTAINER_PORT} --module neoflowProject.wsgi --chdir /code
