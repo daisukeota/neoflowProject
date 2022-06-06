@@ -13,6 +13,7 @@ urlpatterns = [
     path( 'debian/', views.DebianView.as_view(), name='debian' ),
     path( 'deepin/', views.DeepinView.as_view(), name='deepin' ),
     path( 'detail/<int:pk>/', views.ManpageDetail.as_view(), name='manpage_detail' ),
+    path( '<str:distro>/<str:version>/<str:title>/', views.ManpageDetail.as_view(), name='manpage_url' ),
     path( 'freebsd/', views.FreebsdView.as_view(), name='freebsd' ),
     path( 'kali/', views.KaliView.as_view(), name='kali' ),
     path( 'macos/', views.MacosView.as_view(), name='macos' ),

@@ -16,7 +16,7 @@
             </div>
         </header>
         {% endblock %}
-        
+
         <!-- Main Content-->
         {% block contents %}
         <div class="container px-4 px-lg-5">
@@ -26,7 +26,7 @@
                     {% for record in orderby_records %}
                     <div class="post-preview">
                         <a href={% url 'manpage:manpage_detail' record.pk %}>
-                            <h2 class="post-title">{{record.title}}</h2>
+                            <h2 class="post-title"><a href={% url 'manpage:manpage_url' record.pk %}>{{record.title}}</a></h2>
                             <h3 class="post-subtitle">
                                 <span style="font-size : 16pt">
                                     {{record.content|truncatechars:50}}
@@ -35,7 +35,7 @@
                         </a>
                         <p class="post-meta">
                             <a href="#!">Neoflow.org</a>
-                            {{record.posted_at}}に投稿/ディストロ : 
+                            {{record.posted_at}}に投稿/ディストロ :
                             {{record.distro}} - v{{record.version}}
                         </p>
                     </div>
